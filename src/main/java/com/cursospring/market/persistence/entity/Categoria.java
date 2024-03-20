@@ -2,6 +2,8 @@ package com.cursospring.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "categorias")
 public class Categoria {
@@ -11,6 +13,8 @@ public class Categoria {
     private Integer id;
     private String descripcion;
     private Boolean estado;
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> producto;
 
     public Integer getId() {
         return id;

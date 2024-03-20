@@ -2,6 +2,8 @@ package com.cursospring.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "clientes")
 public class Cliente {
@@ -14,6 +16,8 @@ public class Cliente {
     private String direccion;
     @Column(name = "correo_electronico")
     private String email;
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compra;
 
     public String getId() {
         return id;

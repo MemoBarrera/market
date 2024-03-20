@@ -10,6 +10,12 @@ public class CompraProducto {
     private Integer cantidad;
     private Float total;
     private Boolean estado;
+    @ManyToOne
+    @JoinColumn(name = "id_producto",insertable = false,updatable = false)
+    private Producto producto;
+    @ManyToOne
+    @JoinColumn(name = "id_compra",insertable = false,updatable = false)
+    private Compra compra;
 
     public CompraProductoPK getId() {
         return id;

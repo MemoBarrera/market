@@ -3,6 +3,7 @@ package com.cursospring.market.persistence.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -18,6 +19,11 @@ public class Compra {
     private Character medioPago;
     private String comentario;
     private Character estado;
+    @OneToMany(mappedBy = "compra")
+    private List<CompraProductoPK> compraProductoPK;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false,updatable = false)
+    private Cliente cliente;
 
     public Integer getId() {
         return id;
