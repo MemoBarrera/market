@@ -1,6 +1,14 @@
 package com.cursospring.market.persistence.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,7 +28,7 @@ public class Compra {
     private String comentario;
     private Character estado;
     @OneToMany(mappedBy = "compra")
-    private List<CompraProductoPK> compraProductoPK;
+    private List<CompraProducto> compraProducto;
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false,updatable = false)
     private Cliente cliente;
@@ -71,5 +79,21 @@ public class Compra {
 
     public void setEstado(Character estado) {
         this.estado = estado;
+    }
+
+    public List<CompraProducto> getCompraProducto() {
+        return compraProducto;
+    }
+
+    public void setCompraProducto(List<CompraProducto> compraProducto) {
+        this.compraProducto = compraProducto;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

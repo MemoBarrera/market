@@ -1,6 +1,7 @@
 package com.cursospring.market.persistence.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Column;
 
 import java.io.Serializable;
 
