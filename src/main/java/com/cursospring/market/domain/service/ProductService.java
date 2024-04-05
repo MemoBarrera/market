@@ -26,7 +26,7 @@ public class ProductService {
     }
 
     public Optional<Product> getProduct(int productId){
-        return productRepository.getProduct(productId);
+        return productRepository.getById(productId);
     }
 
     public Product save(Product product){
@@ -34,7 +34,7 @@ public class ProductService {
     }
 
     public boolean delete(int productId){
-        if(productRepository.getProduct(productId).isPresent()){
+        if(productRepository.getById(productId).isPresent()){
             productRepository.delete(productId);
             return true;
         }
